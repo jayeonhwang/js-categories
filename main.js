@@ -31,7 +31,6 @@ function onButtonClick(event, items) {
   }
 
   const filter = items.filter(item => item[key] === value);
-  console.log(filter);
   displayItems(filter);
 
 }
@@ -45,7 +44,6 @@ function setEventListeners(items) {
 
 loadItems()
   .then(items => {
-    console.log(items);
     displayItems(items);
     setEventListeners(items);
   })
