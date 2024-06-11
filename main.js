@@ -22,8 +22,18 @@ function createHTMLString(item) {
 }
 
 function onButtonClick(event, items) {
-  console.log(event.target.dataset.key);
-  console.log(event.target.dataset.value);
+  const dataset = event.target.dataset;
+  const key = dataset.key;
+  const value = dataset.value;
+
+  if (key == null || value == null) {
+    return;
+  }
+
+  const filter = items.filter(item => item[key] === value);
+  console.log(filter);
+  displayItems(filter);
+
 }
 
 function setEventListeners(items) {
