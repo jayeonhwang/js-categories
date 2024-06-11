@@ -37,7 +37,7 @@ body {
   transition: transform var(---animation-duration) ease;
 }
 
-.btn-section {
+.buttons {
   display: flex;
   align-items: center;
 }

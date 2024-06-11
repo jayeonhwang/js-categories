@@ -10,6 +10,8 @@ function displayItems(items) {
   container.innerHTML = items.map(item => createHTMLString(item)).join('');
 }
 
+//create HTML list item from the given data item
+
 function createHTMLString(item) {
   return `
   <li class="item">
@@ -19,9 +21,22 @@ function createHTMLString(item) {
   `;
 }
 
+function onButtonClick(event, items) {
+  console.log(event.target.dataset.key);
+  console.log(event.target.dataset.value);
+}
+
+function setEventListeners(items) {
+  const logo = document.querySelector('.logo');
+  const buttons = document.querySelector('.buttons');
+  logo.addEventListener(`click`, () => displayItems(items));
+  buttons.addEventListener(`click`, event => onButtonClick(event, items));
+}
+
 loadItems()
   .then(items => {
     console.log(items);
     displayItems(items);
+    setEventListeners(items);
   })
   .catch(console.log);
